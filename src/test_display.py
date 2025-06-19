@@ -15,4 +15,4 @@ class TestDisplay(unittest.TestCase):
 
     def test_update(self):
         self.display.update({"message": "Goodbye"})
-        self.assertEqual(self.display.message, "Welcome to the car park")
+        self.assertEqual(self.display.message, "Goodbye")
