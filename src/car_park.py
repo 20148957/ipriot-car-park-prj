@@ -2,11 +2,12 @@ from sensor import Sensor
 from display import Display
 
 class CarPark:
-    def __init__(self, location, capacity, plates=None, displays=None):
+    def __init__(self, location, capacity, plates=None, displays=None, sensors=None):
         self.location = location
         self.capacity = capacity
         self.plates = plates or []
         self.displays = displays or []
+        self.sensors = sensors or []
 
     def register(self, component):
         if not isinstance(component, (Sensor, Display)):
