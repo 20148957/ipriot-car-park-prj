@@ -5,8 +5,8 @@ class CarPark:
     def __init__(self, location, capacity, plates=None, displays=None):
         self.location = location
         self.capacity = capacity
-        self.plates = plates or None
-        self.displays = displays or None
+        self.plates = plates or []
+        self.displays = displays or []
 
     def register(self, component):
         if not isinstance(component, (Sensor, Display)):
@@ -26,7 +26,7 @@ class CarPark:
 
     @property
     def available_bays(self):
-        if self.capacity < len(self.plates):
+        if self.capacity > len(self.plates):
             return self.capacity - len(self.plates)
         else:
             return 0
