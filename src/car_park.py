@@ -5,7 +5,8 @@ from datetime import datetime
 import json
 
 class CarPark:
-    def __init__(self, location, capacity, plates=None, displays=None, sensors=None, log_file=Path("log.txt")):
+    def __init__(self, location, capacity, plates=None, displays=None, sensors=None, log_file=Path("log.txt"),
+                 config_file=None):
         self.location = location
         self.capacity = capacity
         self.plates = plates or []
@@ -13,6 +14,7 @@ class CarPark:
         self.sensors = sensors or []
         self.log_file = log_file if isinstance(log_file, Path) else Path(log_file)
         self.log_file.touch(exist_ok=True)
+        self.config_file = config_file or "config.json"
 
     def register(self, component):
         if not isinstance(component, (Sensor, Display)):
@@ -48,7 +50,7 @@ class CarPark:
             f.write(f"{plate} {action} at {datetime.now():%Y-%m-%d %H:%M:%S}\n")
 
     def write_config(self):
-        with open("config.json", "w") as f:  # TODO: use self.config_file; use Path; add optional parm to __init__
+        with open(self.config_file, "w") as f:  # TODO: use self.config_file; use Path; add optional parm to __init__
             json.dump({"location": self.location,
                        "capacity": self.capacity,
                        "log_file": str(self.log_file)}, f)
