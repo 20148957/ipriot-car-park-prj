@@ -12,15 +12,11 @@ entry_sensor_moondalup = EntrySensor(1, True, car_park_moondalup)
 car_park_moondalup.register(entry_sensor_moondalup)
 car_park_moondalup.register(display_moondalup)
 car_park_moondalup.register(exit_sensor_moondalup)
-entry_sensor_moondalup.detect_vehicle()
-entry_sensor_moondalup.detect_vehicle()
-entry_sensor_moondalup.detect_vehicle()
-entry_sensor_moondalup.detect_vehicle()
-entry_sensor_moondalup.detect_vehicle()
-entry_sensor_moondalup.detect_vehicle()
-entry_sensor_moondalup.detect_vehicle()
-entry_sensor_moondalup.detect_vehicle()
-entry_sensor_moondalup.detect_vehicle()
-entry_sensor_moondalup.detect_vehicle()
-exit_sensor_moondalup.detect_vehicle()
-exit_sensor_moondalup.detect_vehicle()
+x = 10
+while x > 0:
+    entry_sensor_moondalup.detect_vehicle()
+    x = x - 1
+x = 2
+while x > 0:
+    exit_sensor_moondalup.detect_vehicle()
+    x = x - 1
