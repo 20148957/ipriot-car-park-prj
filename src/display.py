@@ -5,6 +5,9 @@ class Display:
         self.is_on = is_on
 
     def update(self, data):
+        """
+        Update the display
+        """
         for key, value in data.items():
             if key == "message":
                 self.message = value
